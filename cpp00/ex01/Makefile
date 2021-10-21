@@ -1,12 +1,12 @@
-CC = clang++
+CC = c++
 
-FLAGS = -g -fsanitize=address -Wall -Wextra -Werror -Wno-unused -std=c++98
+FLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
 NAME = phonebook
 
-SRC = PhoneBook.cpp main.cpp\
+SRC = phonebook.cpp main.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 

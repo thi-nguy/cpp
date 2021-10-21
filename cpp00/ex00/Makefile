@@ -1,4 +1,4 @@
-CC = clang++
+CC = c++
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 NAME = megaphone
@@ -20,4 +20,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-

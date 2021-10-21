@@ -1,14 +1,10 @@
-INCLUDE_DIR = include/phonebook.hpp
-
-INCLUDE = -I$(INCLUDE_DIR)
-
-CC = clang++
+CC = c++
 
 FLAGS = -g -fsanitize=address -Wall -Wextra -Werror -Wno-unused -std=c++98 $(INCLUDE)
 
 RM = rm -f
 
-NAME = phonebook
+NAME = account
 
 SRC =
 
