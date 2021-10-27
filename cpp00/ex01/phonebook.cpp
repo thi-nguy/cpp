@@ -77,7 +77,7 @@ void    PhoneBook::display(void)
 	};
     if (this->getStatus() == true)
     {
-        std::cout << "No entry for this index." << std::endl;
+        std::cout << "No entry for this index. Returning to the main menu.\n" << std::endl;
         return ;
     }
 	for (int i = 0; i < 5; i++)

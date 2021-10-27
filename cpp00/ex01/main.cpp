@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-int main()
+int main(void)
 {
     std::string command;
     std::string entry;
@@ -16,6 +16,8 @@ int main()
             add(contacts);
         else if (command.compare("SEARCH") == 0)
             search(contacts);
+        else if (command.compare("EXIT") != 0 && command.compare("ADD") != 0 &&command.compare("SEARCH") != 0)
+            std::cout << "Command is invalid. Returning to the main menu\n" << std::endl;
     }
     std::cout << "Close the phonebook." << std::endl;
     return (0);
@@ -24,33 +26,38 @@ int main()
 void    add(PhoneBook contact_list[8])
 {
     int i;
+    int ret;
 
     i = 0;
     while (contact_list[i].getStatus() == false && i < 8)
         i++;
     if (i == 8)
-        add_to_full_list(contact_list);
-    contact_list[i].addContact();
+    {
+        if (add_to_full_list(contact_list) != 0)
+            return ;
+    }
+    else
+        contact_list[i].addContact();
 }
 
-void    add_to_full_list(PhoneBook contact_list[8])
+int    add_to_full_list(PhoneBook contact_list[8])
 {
     std::string choice;
 
     std::cout << "Phonebook is full. Keep adding new contact will remove oldest contact." << std::endl;
     std::cout << "Keep adding new contact (y/n)?" << std::endl;
     std::getline(std::cin, choice);
-    if (choice.length() != 1 || choice.compare("y") != 0 || choice.compare("n") != 0)
+    if (choice.length() != 1 || (choice.compare("y") != 0 && choice.compare("n") != 0))
     {
         std::cout << "Not a valid choice. Returning to the main menu" << std::endl << std::endl;
-        return ;
+        return (1);
     }
     else
     {
         if (choice.compare("n") == 0)
         {
             std::cout << "Returning to the main menu" << std::endl;
-            return ;
+            return (1);
         }
         else
         {
@@ -58,7 +65,7 @@ void    add_to_full_list(PhoneBook contact_list[8])
                 contact_list[j] = contact_list[j + 1];
             contact_list[7].clear();
             contact_list[7].addContact();
-            return ;
+            return (0);
         }
     }
 }

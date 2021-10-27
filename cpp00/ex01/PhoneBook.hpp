@@ -46,6 +46,6 @@ void    add(PhoneBook contact_list[8]); // ! under_score for normal
 void    search(PhoneBook contact_list[8]);
 void    display_contact_list(PhoneBook contact_list[8]);
 void    print_format(std::string output);
-void    add_to_full_list(PhoneBook contact_list[8]);
+int     add_to_full_list(PhoneBook contact_list[8]);
 
 #endif
