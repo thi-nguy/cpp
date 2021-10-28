@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 01:41:56 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/22 15:10:09 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/28 14:58:46 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,7 @@ Account::Account(void) {
 	return ;
 }
 
-Account::Account( int initial_deposit ) : _accountIndex(getNbAccounts())
-										, _amount(initial_deposit)
-										, _nbDeposits(0)
-										, _nbWithdrawals(0)
+Account::Account( int initial_deposit ) : _accountIndex(getNbAccounts()), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
 {
 	_nbAccounts += 1;
 	_totalAmount += initial_deposit;
