@@ -1,6 +1,6 @@
 CC = c++
 
-FLAGS = -g -fsanitize=address -Wall -Wextra
+FLAGS = -g -fsanitize=address -Wall -Wextra -Werror
 
 RM = rm -f
 
