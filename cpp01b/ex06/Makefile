@@ -1,0 +1,27 @@
+CC = c++ -g
+
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
+
+RM = rm -f
+
+NAME = karenFilter
+
+SRC = main.cpp Karen.cpp\
+
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	-@echo "Compiling..."
+	$(CC) -o $(NAME) $(OBJ) $(FLAGS)
+
+clean:
+	-@echo "Removing object files..."
+	$(RM) $(OBJ)
+
+fclean: clean
+	-@echo "Removing executive file..."
+	$(RM) $(NAME)
+
+re: fclean all
