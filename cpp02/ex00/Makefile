@@ -1,11 +1,9 @@
-NAME	:= attack
+NAME	:= fixed_point
 CXX		:= c++
 CXXFLAGS:= -Wall -Wextra -Werror
 
 SRCS	:= main.cpp \
-			HumanA.cpp \
-			HumanB.cpp \
-			Weapon.cpp
+			Fixed.cpp
 OBJS	:= $(SRCS:.cpp=.o)
 
 .PHONY : all clean fclean re
