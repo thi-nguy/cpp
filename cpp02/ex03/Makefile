@@ -1,6 +1,6 @@
 NAME	:= bsp
 CXX		:= c++
-CXXFLAGS:= -Wall -Wextra -Werror
+CXXFLAGS:= -Wall -Wextra -Werror -fsanitize=address
 
 SRCS	:= main.cpp \
 			Fixed.cpp \

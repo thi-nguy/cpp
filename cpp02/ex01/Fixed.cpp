@@ -44,7 +44,7 @@ void    Fixed::setRawBits(int const raw)
     _value = raw;
 }
 
-float	Fixed::toFloat(void) const // convert fixed point to float
+float	Fixed::toFloat(void) const
 
 {
 	float	float_value = _value;
@@ -55,5 +55,11 @@ float	Fixed::toFloat(void) const // convert fixed point to float
 
 int	Fixed::toInt(void) const
 {
-	return (_value >> _fracBits); // convert fixed point to Int by scale factor. _value = _value * 1/2^_fracBits
+	return (_value >> _fracBits); //_value = _value * 1/2^_fracBits
+}
+
+std::ostream    &operator<<(std::ostream &COUT, const Fixed &fixed_point)
+{
+    COUT << fixed_point.toFloat();
+    return (COUT);
 }

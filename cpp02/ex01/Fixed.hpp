@@ -25,4 +25,6 @@ class Fixed
         int     toInt(void) const;
 };
 
+std::ostream    &operator<<(std::ostream &COUT, const Fixed &fixed_point);
+
 #endif
