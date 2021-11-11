@@ -2,18 +2,22 @@
 
 Zombie::Zombie(void)
 {
-    this->_name = "";
+    return ;
+}
+
+Zombie::Zombie(std::string name)
+{
+    this->_name = name;
+}
+
+void    Zombie::setName(std::string name)
+{
+    this->_name = name;
 }
 
 Zombie::~Zombie(void)
 {
     std::cout << this->_name << " is destroyed" << std::endl;
-    // TODO: delete memory allocated on Heap;
-}
-
-void            Zombie::setName(std::string name)
-{
-    this->_name = name;
 }
 
 std::string       Zombie::getName(void)

@@ -2,11 +2,18 @@
 
 Zombie  *zombieHorde(int N, std::string name)
 {
-    Zombie *ptr_zombie;
+    Zombie *zombie_array;
     int i;
+    char c;
+    std::string new_name;
 
-    ptr_zombie = new Zombie[N];
+    zombie_array = new Zombie[N];
     for (i = 0; i < N; i++)
-        ptr_zombie[i].setName(name);
-    return (ptr_zombie);
+    {
+        new_name = name;
+        c = i + '0';
+        new_name = new_name + '_' + c;
+        (zombie_array[i]).setName(new_name);
+    }
+    return (zombie_array);
 }

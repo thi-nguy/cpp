@@ -8,8 +8,9 @@
 class HumanA
 {
     private:
-        Weapon      &_weapon;
-        std::string _name;
+        std::string     _name; // this must be before Weapon. Because in constructor it is before
+        Weapon          &_weapon;
+
     public:
         HumanA(std::string name, Weapon &weapon);
         ~HumanA(void);

@@ -39,7 +39,6 @@ int main(int ac, char **av)
         std::cout << "File link is not correct" << std::endl;
         return (0);
     }
-    std::cout << "ok here" << std::endl;
     while (i_file.get(c))
         content += c;
     replaceString(content, av[2], av[3]);

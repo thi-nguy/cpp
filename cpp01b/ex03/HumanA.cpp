@@ -1,7 +1,7 @@
 #include "HumanA.hpp"
 
 HumanA::HumanA(std::string name, Weapon &weapon)
-: _name(name), _weapon(weapon) // meaning: _name = name, _weapon = weapon. Why _name = name , _weapon = weapon does not work.
+:  _name(name), _weapon(weapon)
 {
     return  ;
 }

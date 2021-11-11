@@ -1,11 +1,9 @@
-NAME	:= attack
-CXX		:= c++
-CXXFLAGS:= -Wall -Wextra -Werror -fsanitize=address
+NAME	:= clap_trap
+CXX		:= c++ #change to clang++
+CXXFLAGS:= -Wall -Wextra -Werror -std=c++98
 
 SRCS	:= main.cpp \
-			HumanA.cpp \
-			HumanB.cpp \
-			Weapon.cpp
+			ClapTrap.cpp
 OBJS	:= $(SRCS:.cpp=.o)
 
 .PHONY : all clean fclean re

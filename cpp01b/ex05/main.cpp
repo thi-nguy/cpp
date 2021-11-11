@@ -11,7 +11,7 @@ int     main(void)
     karen.complain("WARNING");
     karen.complain("ERROR");
     karen.complain("lkjelj");
-    
+    karen.complain("");
 
     return (0);
 }

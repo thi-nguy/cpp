@@ -1,11 +1,13 @@
-NAME	:= attack
-CXX		:= c++
-CXXFLAGS:= -Wall -Wextra -Werror -fsanitize=address
+NAME	:= diamond_trap
+CXX		:= c++ #change to clang++
+CXXFLAGS:= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow 
 
 SRCS	:= main.cpp \
-			HumanA.cpp \
-			HumanB.cpp \
-			Weapon.cpp
+			ClapTrap.cpp \
+			ScavTrap.cpp \
+			FragTrap.cpp \
+			DiamondTrap.cpp
+			
 OBJS	:= $(SRCS:.cpp=.o)
 
 .PHONY : all clean fclean re
