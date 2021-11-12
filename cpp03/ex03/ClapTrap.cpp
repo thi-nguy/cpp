@@ -36,7 +36,6 @@ ClapTrap::ClapTrap(std::string name)
 {    
     std::cout << "ClapTrap Constructor called" << std::endl;
 }
-// ! need to add something else ??
 
 void    ClapTrap::attack(std::string const &target)
 // will call the most derived function instead of the function on base class. 

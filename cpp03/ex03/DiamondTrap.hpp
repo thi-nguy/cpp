@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class DiamondTrap: public ScavTrap, public FragTrap  //inherits from 2 classes. Use this order in copy construction.
 {
     private:
         std::string     _name;

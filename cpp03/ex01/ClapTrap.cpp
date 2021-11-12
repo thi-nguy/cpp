@@ -4,18 +4,12 @@ ClapTrap::ClapTrap(void)
 : _name("no name"), _hit_point(10), _energy_point(10), _attack_damage(0)
 {
     std::cout << "ClapTrap Default constructor called" << std::endl;
-
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other_object)
-{
-    std::cout << "ClapTrap Copy constructor called" << std::endl;
-    *this = other_object;
-}
-
-ClapTrap::~ClapTrap(void) 
-{
-    std::cout << "ClapTrap Destructor called" << std::endl;
+ClapTrap::ClapTrap(std::string name)
+: _name(name), _hit_point(10), _energy_point(10), _attack_damage(0)
+{    
+    std::cout << "ClapTrap Constructor called" << std::endl;
 }
 
 ClapTrap    &ClapTrap::operator=(const ClapTrap &rhs)
@@ -31,11 +25,17 @@ ClapTrap    &ClapTrap::operator=(const ClapTrap &rhs)
     return (*this);
 }
 
-ClapTrap::ClapTrap(std::string name)
-: _name(name), _hit_point(10), _energy_point(10), _attack_damage(0)
-{    
-    std::cout << "ClapTrap Constructor called" << std::endl;
+ClapTrap::ClapTrap(const ClapTrap &other_object)
+{
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
+    *this = other_object;
 }
+
+ClapTrap::~ClapTrap(void) 
+{
+    std::cout << "ClapTrap Destructor called" << std::endl;
+}
+
 // ! need to add something else ??
 
 void    ClapTrap::attack(std::string const &target)

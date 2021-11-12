@@ -7,7 +7,7 @@
 class ClapTrap
 {
     protected: //only inherited classes and this class can access.
-        std::string     _name; // ! should it be in private?
+        std::string     _name;
         int             _hit_point;
         int             _energy_point;
         int             _attack_damage;
@@ -20,7 +20,7 @@ class ClapTrap
 
         ClapTrap(std::string name);
 
-        virtual void    attack(std::string const &target); // is redefined in inherited class. use the
+        virtual void    attack(std::string const &target); // is redefined in inherited class.
         void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
 };

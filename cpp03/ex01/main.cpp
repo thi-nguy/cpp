@@ -4,23 +4,20 @@
 int main(void)
 {
     {
-		ClapTrap	claptrap("Sum");
+		ClapTrap	a("Cadic");
 
-		claptrap.attack("Jhon");
-		claptrap.beRepaired(40);
-		claptrap.takeDamage(100);
+		a.attack("Songoku");
+		a.beRepaired(40);
+		a.takeDamage(100);
 	}
 	std::cout << std::endl;
 	{
-		ScavTrap	scavtrap("Nancy");
+		ScavTrap	b("Kirillin");
 
-		scavtrap.attack("Jhon");
-		scavtrap.beRepaired(80);
-		scavtrap.guardGate();
-		scavtrap.takeDamage(100);
+		b.attack("Pocolo");
+		b.beRepaired(80);
+		b.takeDamage(100);
+		b.guardGate();
 	}
-
     return (0);
 }
-
-// ! add pointer to prove virtual function works
