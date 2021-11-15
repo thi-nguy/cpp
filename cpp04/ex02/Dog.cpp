@@ -1,31 +1,32 @@
 #include "Dog.hpp"
 
-Dog::Dog(void): Animal("Dog") // ! what's this?
+Dog::Dog(void): Animal("Dog"), _brain(new Brain())
 {
-    _brain = new Brain();
-    std::cout << "Dog Default constructor called" << std::endl;
+    std::cout << "Dog no-argument Constructor called" << std::endl;
 }
 
 Dog::~Dog(void)
 {
-    delete _brain;
     std::cout << "Dog Deconstructor called" << std::endl;
+    delete this->_brain;
 }
 
-Dog::Dog(const Dog &other_object): Animal(other_object) // ! what's this?
+Dog::Dog(const Dog &other_object): Animal(other_object)
 {
+    std::cout << "Dog Copy constructor called" << std::endl;
+    // ! other_object._brain contains the address of memory, so we need to dereference it as *(other_object._brain) to get the value contains in that address.
     _brain = new Brain(*(other_object._brain));
     *this = other_object;
 }
 
 Dog  &Dog::operator=(const Dog &rhs)
 {
+    std::cout << "Dog Assignation operator called" << std::endl;
     if (this != &rhs)
     {
-        _type = rhs._type;
-        *_brain = *(rhs._brain);
+        this->_type = rhs._type;
+        *_brain = *(rhs._brain); 
     }
-    std::cout << "Dog Assignation operator called" << std::endl;
     return (*this);
 }
 

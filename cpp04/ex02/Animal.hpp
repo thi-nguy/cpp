@@ -14,7 +14,7 @@ class Animal // ! becomes an abstract class: is the class that has at least one 
         Animal(std::string type);
         Animal  &operator=(const Animal &rhs);
         Animal(const Animal &other_object);
-        virtual ~Animal(void); // ! to override it in child class
+        virtual ~Animal(void);
 
         virtual void    makeSound(void) const = 0;  
         // ! pure virtual function. 

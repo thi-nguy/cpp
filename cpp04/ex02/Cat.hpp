@@ -13,11 +13,11 @@ class Cat: public Animal
 
     public:
         Cat(void);
-        virtual ~Cat(void); // ! on a besoin de virtual ici? pourquoi?
+        virtual ~Cat(void); // ! Need virtual here to delete all memory
         Cat(const Cat &other_object);
         Cat   &operator=(const Cat &rhs);
 
-        void    makeSound(void) const; // ! tai sao them virtual?
+        void    makeSound(void) const;
 };
 
 #endif

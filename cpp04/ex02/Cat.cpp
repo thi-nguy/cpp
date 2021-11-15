@@ -1,31 +1,31 @@
 #include "Cat.hpp"
 
-Cat::Cat(void): Animal("Cat") // ! what's this?
+Cat::Cat(void): Animal("Cat"), _brain(new Brain())
 {
-    std::cout << "Cat Default constructor called" << std::endl;
-    _brain = new Brain();
+    std::cout << "Cat no-argument constructor called" << std::endl;
 }
 
 Cat::~Cat(void)
 {
-    delete _brain;
     std::cout << "Cat Deconstructor called" << std::endl;
+    delete this->_brain;
 }
 
-Cat::Cat(const Cat &other_object): Animal(other_object) // ! what's this?
+Cat::Cat(const Cat &other_object): Animal(other_object)
 {
-    _brain = new Brain(*(other_object._brain)); // ! ???
+    std::cout << "Cat Copy constructor called" << std::endl;
+    _brain = new Brain(*(other_object._brain)); 
     *this = other_object;
 }
 
 Cat  &Cat::operator=(const Cat &rhs)
 {
+    std::cout << "Cat Assignation operator called" << std::endl;
     if (this != &rhs)
     {
-        _type = rhs._type;
-        *_brain = *(rhs._brain); // ! ??
+        this->_type = rhs._type;
+        *_brain = *(rhs._brain); 
     }
-    std::cout << "Cat Assignation operator called" << std::endl;
     return (*this);
 }
 
