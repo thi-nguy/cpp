@@ -4,17 +4,16 @@
 #include <string>
 #include "AMateria.hpp"
 
-class Cure
+class Cure: public AMateria
 {
     public:
         Cure(void);
-        Cure(std::string const &type);
         ~Cure(void);
-        Cure &operator=(const Cure &rhs);
-        Cure(const Cure &other_object);
+        Cure&   operator=(const Cure& rhs);
+        Cure(const Cure&    other_object);
 
-        AMateria *clone(void) const;
-        void use(ICharacter &target);
+        AMateria*   clone(void) const;
+        void use(ICharacter&    target);
 };
 
 #endif

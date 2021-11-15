@@ -1,6 +1,6 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(void) {}
+AMateria::AMateria(void): _type("no type") {}
 
 AMateria::AMateria(std::string const &type): _type(type) {}
 
@@ -27,5 +27,5 @@ std::string const   &AMateria::getType(void) const
 
 void    use(ICharacter &target)
 {
-    
+    std::cout << "* use some random matera on " << target.getName() << "*" << std::endl;
 }
