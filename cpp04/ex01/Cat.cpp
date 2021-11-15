@@ -14,7 +14,7 @@ Cat::~Cat(void)
 Cat::Cat(const Cat &other_object): Animal(other_object)
 {
     std::cout << "Cat Copy constructor called" << std::endl;
-   // _brain = new Brain(*(other_object._brain)); 
+    _brain = new Brain(*(other_object._brain)); 
     *this = other_object;
 }
 
@@ -23,9 +23,8 @@ Cat  &Cat::operator=(const Cat &rhs)
     std::cout << "Cat Assignation operator called" << std::endl;
     if (this != &rhs)
     {
-        this->_type = rhs._type; // ? already called it from Animal(other_object) ?
-        _brain = new Brain(*(rhs._brain)); 
-        // ! rhs._brain contains the address of memory, so we need to dereference it as *(rhs._brain) to get the value contains in that address.
+        this->_type = rhs._type;
+        *_brain = *(rhs._brain); 
     }
     return (*this);
 }

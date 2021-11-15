@@ -41,7 +41,7 @@ int     main(void)
         
         delete i;
     }
-    // ! Test Copy constructor & Assignation operator
+    // ! Test Copy constructor & Assignation operator of Dog class
     std::cout << std::endl;
     {
         std::cout << "TEST 03 ----------------------------" << std::endl << std::endl;
@@ -53,6 +53,24 @@ int     main(void)
         std::cout << std::endl;
         
         Dog dup_tmp;
+        dup_tmp = tmp;
+        std::cout << std::endl;
+        
+        std::cout << basic.getType() << std::endl;
+        std::cout << tmp.getType() << std::endl;
+        std::cout << dup_tmp.getType() << std::endl << std::endl;
+    }
+
+    // ! Test Copy constructor & Assignation operator of Cat Class
+    std::cout << std::endl;
+    {
+        std::cout << "TEST 04 ----------------------------" << std::endl << std::endl;
+        
+        Cat basic;
+        std::cout << std::endl;
+        
+        Cat tmp(basic);
+        Cat dup_tmp;
         std::cout << std::endl;
         
         dup_tmp = tmp;
