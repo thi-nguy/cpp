@@ -1,14 +1,8 @@
-// ! tai sao can interface, khac gi voi inheritage va pure virtual class?
-// ! interface la gi?
-// ! test nhu the nao
-
-#include "IMateriaSource.hpp"
-#include "ICharacter.hpp"
-#include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+#include <iostream>
 
 int     main(void)
 {

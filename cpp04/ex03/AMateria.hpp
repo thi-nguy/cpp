@@ -3,9 +3,10 @@
 
 #include <string>
 #include <iostream>
-
-#include "ICharacter.hpp"
 #include <string>
+
+class AMateria;
+#include "ICharacter.hpp"
 
 class AMateria
 {
@@ -15,7 +16,7 @@ class AMateria
     public:
         AMateria(void);
         AMateria(std::string const &type);
-        ~AMateria(void);
+        virtual ~AMateria(void);
         AMateria &operator=(const AMateria &rhs);
         AMateria(const AMateria &other_object);
 

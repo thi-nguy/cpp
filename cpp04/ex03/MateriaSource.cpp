@@ -1,16 +1,30 @@
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(void): _type("no type") {}
+MateriaSource::MateriaSource(void)
+{
+    for (int i = 0; i < 4; i++)
+        _memory[i] = NULL;
+}
 
-MateriaSource::MateriaSource(std::string const &type): _type(type) {}
-
-MateriaSource::~MateriaSource(void) {}
+MateriaSource::~MateriaSource(void)
+{
+    for (int i = 0; i < 4; i++)
+	{
+		delete _memory[i];
+	}
+}
 
 MateriaSource    &MateriaSource::operator=(const MateriaSource &rhs)
 {
     if (this != &rhs)
     {
-        _type = rhs.getType();
+        for (int i = 0; i < 4; i++)
+		{
+			if (rhs._memory[i] != NULL)
+				_memory[i] = rhs._memory[i]->clone();
+			else
+				_memory[i] = NULL;
+		}
     }
     return (*this);
 }
@@ -18,4 +32,26 @@ MateriaSource    &MateriaSource::operator=(const MateriaSource &rhs)
 MateriaSource::MateriaSource(const MateriaSource &other_object)
 {
     *this = other_object;
+}
+
+void        MateriaSource::learnMateria(AMateria* a)
+{
+    for (int i = 0; i < 4; i++)
+	{
+		if (_memory[i] == NULL)
+		{
+			_memory[i] = a;
+			return ;
+		}
+	}
+}
+
+AMateria*   MateriaSource::createMateria(std::string const& type)
+{
+   for (int i = 0; i < 4 ; i++)
+	{
+		if (_memory[i]->getType() == type)
+			return _memory[i]->clone();
+	}
+	return 0;
 }

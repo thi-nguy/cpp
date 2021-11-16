@@ -13,7 +13,7 @@ Ice    &Ice::operator=(const Ice &rhs)
     return (*this);
 }
 
-Ice::Ice(const Ice &other_object)
+Ice::Ice(const Ice &other_object): AMateria(other_object)
 {
     *this = other_object;
 }
@@ -21,7 +21,6 @@ Ice::Ice(const Ice &other_object)
 AMateria*   Ice::clone(void) const
 {
     return (new Ice(*this));
-
 }
 
 void    Ice::use(ICharacter &target)

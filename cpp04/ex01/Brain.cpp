@@ -1,7 +1,9 @@
 #include "Brain.hpp"
 
-Brain::Brain(void)// ! : _ideas = ""; How to initiate a list?
+Brain::Brain(void) // ! : _ideas = ""; How to initiate a list?
 {
+    for (int i = 0; i < 100; i++)
+        this->_ideas[i] = "";
     std::cout << "Brain no_argument constructor called" << std::endl;
 }
 

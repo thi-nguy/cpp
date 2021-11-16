@@ -19,7 +19,7 @@ class Character: public ICharacter
         Character(const Character& other_object);
         Character&  operator=(const Character& rhs);
 
-        std::string const&  getName() const;
+        std::string const&  getName(void) const;
         void                equip(AMateria *m);
         void                unequip(int idx);
         void                use(int idx, ICharacter &target);

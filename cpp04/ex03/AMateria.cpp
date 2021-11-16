@@ -25,7 +25,7 @@ std::string const   &AMateria::getType(void) const
     return (_type);
 }
 
-void    use(ICharacter &target)
+void                AMateria::use(ICharacter &target)
 {
-    std::cout << "* use some random matera on " << target.getName() << "*" << std::endl;
+    std::cout << "* use some random materia on " << target.getName() << "*" << std::endl;
 }
