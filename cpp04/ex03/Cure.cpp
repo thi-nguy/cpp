@@ -13,12 +13,12 @@ Cure&   Cure::operator=(const Cure&    rhs)
     return (*this);
 }
 
-Cure::Cure(const Cure&  other_object): AMateria(other_object)
+Cure::Cure(const Cure&  other_object): AMateria(other_object._type)
 {
     *this = other_object;
 }
 
-AMateria*   Cure::clone(void) const
+Cure*   Cure::clone(void) const
 {
     return (new Cure(*this));
 }

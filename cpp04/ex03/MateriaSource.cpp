@@ -10,7 +10,8 @@ MateriaSource::~MateriaSource(void)
 {
     for (int i = 0; i < 4; i++)
 	{
-		delete _memory[i];
+		if (_memory[i] != NULL)
+			delete (_memory[i]);
 	}
 }
 
@@ -50,8 +51,8 @@ AMateria*   MateriaSource::createMateria(std::string const& type)
 {
    for (int i = 0; i < 4 ; i++)
 	{
-		if (_memory[i]->getType() == type)
-			return _memory[i]->clone();
+		if (_memory[i] != NULL && _memory[i]->getType() == type)
+			return (_memory[i]->clone());
 	}
-	return 0;
+	return (NULL);
 }

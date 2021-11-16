@@ -16,7 +16,8 @@ Character::~Character(void)
 {	
     for (int i = 0; i < 4; i++)
 	{
-		delete _inventory[i];
+		if (_inventory[i] != NULL)
+            delete (_inventory[i]);
 	}
 }
 

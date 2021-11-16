@@ -1,6 +1,6 @@
-NAME	:= animal
+NAME	:= materia
 CXX		:= c++ #change to clang++
-CXXFLAGS:= -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow -fsanitize=address
+CXXFLAGS:= -g -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow -fsanitize=address
 
 SRCS	:= main.cpp \
 			AMateria.cpp \
