@@ -44,21 +44,22 @@ int     main(void)
     // ! Test Copy constructor & Assignation operator of Dog class
     std::cout << std::endl;
     {
-        std::cout << "TEST 03 ----------------------------" << std::endl << std::endl;
-        
-        Dog basic;
+        Dog				dog_original;
+        unsigned int	index = 0;
+        dog_original.setBrainIdea(index, "croquette");
+
+        Dog		dog_copy(dog_original);
         std::cout << std::endl;
-        
-        Dog tmp(basic);
-        std::cout << std::endl;
-        
-        Dog dup_tmp;
-        dup_tmp = tmp;
-        std::cout << std::endl;
-        
-        std::cout << basic.getType() << std::endl;
-        std::cout << tmp.getType() << std::endl;
-        std::cout << dup_tmp.getType() << std::endl << std::endl;
+        std::cout << "Before" << std::endl;
+        std::cout << "dog_original	idea:: " << dog_original.getBrainIdea(index) << std::endl;
+        std::cout << "dog_copy	idea: " << dog_copy.getBrainIdea(index) << std::endl;
+
+        std::cout << "After" << std::endl;
+        dog_copy.setBrainIdea(index, "napping");
+        std::cout << "dog_original	idea: " << dog_original.getBrainIdea(index) << std::endl;
+        std::cout << "dog_copy	idea: " << dog_copy.getBrainIdea(index) << std::endl;
+
+        std::cout <<std::endl;
     }
 
     // ! Test Copy constructor & Assignation operator of Cat Class
