@@ -4,6 +4,9 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -18,7 +21,7 @@ class Bureaucrat
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat&     operator=(const Bureaucrat &rhs);
 
-        int             getGrade(void) const;
+        int    getGrade(void) const;
         std::string     getName(void) const;
         void            setGrade(int grade);
 
@@ -36,6 +39,8 @@ class Bureaucrat
             public:
                 const char* what() const throw();
         };
+
+        void    signForm(Form& form);
 };
 
 std::ostream    &operator<<(std::ostream &COUT, const Bureaucrat &bureaucrat);
