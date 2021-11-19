@@ -29,6 +29,7 @@ void	testAssignationOperator(int gradeToSign, int gradeToExec, bool isSigned)
 		std::cerr << e.what() << std::endl;
 	}
 }
+
 void	testFormConstructor(int gradeToSign, int gradeToExec)
 {
 	std::string		name = "Random Form";
@@ -43,7 +44,6 @@ void	testFormConstructor(int gradeToSign, int gradeToExec)
 	{
 		std::cerr << err.what() << std::endl;
 	}
-	
 }
 
 void	testCopyConstructor(int gradeToSign, int gradeToExec, bool isSigned)

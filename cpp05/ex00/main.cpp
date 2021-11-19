@@ -55,29 +55,80 @@ void	testConstructor(int grade)
 	}
 }
 
+void	testCopyConstructor(int grade)
+{
+	std::string		name = "Ron Weasly";
+	try
+	{
+		Bureaucrat b(name, grade);
+		std::cout << "Original: ";
+		std::cout << b << std::endl;
+
+		Bureaucrat b_copy(b);
+		std::cout << "Copied  : ";
+		std::cout << b_copy << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+void	testAssignationOperator(int grade)
+{
+	std::string		name = "Ron Weasly";
+	try
+	{
+		Bureaucrat b(name, grade);
+		std::cout << "Original b: ";
+		std::cout << b << std::endl;
+
+		Bureaucrat c("Harry Potter", 20);
+		std::cout << "Original c: ";
+		std::cout << c << std::endl;
+		c = b;
+		std::cout << "Copied c  : ";
+		std::cout << c << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+}
+
 int		main()
 {
-    std::cout << "Test 1---------------" << std::endl;
+    std::cout << "\nTest 01: Contructor---------------" << std::endl;
 	testConstructor(-1);
-	testConstructor(2);
+	testConstructor(1);
 	testConstructor(42);
 	testConstructor(150);
 	testConstructor(151);
 
-    std::cout << "Test 2---------------" << std::endl;
+    std::cout << "\nTest 02: Copy Constructor---------------" << std::endl;
+	testCopyConstructor(-1);
+	testCopyConstructor(1);
+	testCopyConstructor(42);
+	testCopyConstructor(150);
+	testCopyConstructor(151);
+
+    std::cout << "\nTest 03: Assignation Operator---------------" << std::endl;
+	testAssignationOperator(-1);
+	testAssignationOperator(1);
+	testAssignationOperator(42);
+	testAssignationOperator(150);
+	testAssignationOperator(151);
+
+    std::cout << "\nTest 04: Increment---------------" << std::endl;
 	testIncrement(-1);
-	testIncrement(0);
 	testIncrement(1);
-	testIncrement(2);
 	testIncrement(42);
 	testIncrement(150);
 	testIncrement(151);
 
-    std::cout << "Test 2---------------" << std::endl;
+    std::cout << "\nTest 05: Decrement---------------" << std::endl;
 	testDecrement(-1);
-	testDecrement(0);
 	testDecrement(1);
-	testDecrement(2);
 	testDecrement(42);
 	testDecrement(150);
 	testDecrement(151);

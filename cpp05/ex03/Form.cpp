@@ -82,7 +82,6 @@ const char*     Form::GradeTooLowToSignException::what() const throw()
 {
     return ("Grade is too low to sign");
 }
-
 const char*     Form::GradeTooLowToExecuteException::what() const throw()
 {
     return ("Grade is too low to execute");
