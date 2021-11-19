@@ -42,21 +42,15 @@ void    ShrubberyCreationForm::execute(Bureaucrat const& executor) const
     std::string file_name = this->getTarget() + "_shrubbery";
     std::ofstream   fs(file_name.c_str(), std::ios::trunc);
 
-    if (this->getStatus() == false)
-        throw FormNotSignedException();
-    if (this->getGradeToExec() < executor.getGrade())
-        throw GradeTooLowToExecuteException();
-    else
+    Form::execute(executor);
+    if (fs.is_open())
     {
-        if (fs.is_open())
-        {
-            fs << asciiTree();
-            fs.close();
-            std::cout << executor.getName() << " executes " << this->getName()  << std::endl;
-        }
-        else
-            std::cerr << "File cannot be created or opended\n";
+        fs << asciiTree();
+        fs.close();
+        std::cout << executor.getName() << " executes " << this->getName()  << std::endl;
     }
+    else
+        std::cerr << "File cannot be created or opended\n";
 }
 
 

@@ -110,6 +110,14 @@ void            Form::beSigned(Bureaucrat const& bureaucrat)
         _isSigned = true;
 }
 
+void	Form::execute(Bureaucrat const & executor) const
+{
+	if (_isSigned == false)
+		throw Form::FormNotSignedException();
+	else if (executor.getGrade() > _gradeToExec)
+		throw Form::GradeTooLowToExecuteException();
+}
+
 std::ostream	&operator<<(std::ostream &COUT, const Form& form)
 {
 	std::cout << form.getName();
