@@ -14,12 +14,12 @@
 
 uintptr_t serialize(Data* ptr) 
 {
-    return (reinterpret_cast<uintptr_t>(ptr));
+    return (reinterpret_cast<uintptr_t>(ptr)); // ! Doc nguoc: convert pointer to int
 }
 
 Data* deserialize(uintptr_t raw)
 {
-    return (reinterpret_cast<Data *>(raw));
+    return (reinterpret_cast<Data *>(raw)); // ! Doc nguoc: convert int to pointer
 }
 
 std::ostream&   operator<<(std::ostream&    COUT, const Data& data)
