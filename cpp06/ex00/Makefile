@@ -1,10 +1,8 @@
-NAME	:= bureaucrat
-CXX		:= clang++
-CXXFLAGS:= -Wall -Wextra -Werror -std=c++98
+NAME	:= convert
+CXX		:= c++ # change to clang++
+CXXFLAGS:= -g -Wall -Wextra -Werror -std=c++98 -fsanitize=address #delete -fsanitize=address
 
-SRCS	:= main.cpp \
-			Bureaucrat.cpp \
-			Form.cpp
+SRCS	:= main.cpp
 						
 OBJS	:= $(SRCS:.cpp=.o)
 

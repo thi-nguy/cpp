@@ -1,6 +1,6 @@
 NAME	:= bureaucrat
-CXX		:= c++ #change to clang++
-CXXFLAGS:= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CXX		:= clang++
+CXXFLAGS:= -Wall -Wextra -Werror -std=c++98
 
 SRCS	:= main.cpp \
 			Bureaucrat.cpp \
