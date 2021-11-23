@@ -35,6 +35,7 @@ int	main(void)
     }
     std::cout << std::endl;
     {
+        srand(time(NULL));
         std::cout << "Testing index operator []" << std::endl;
         Array<int>	numbers(20);
         for (int i = 0; i < 20; i++)
@@ -59,6 +60,7 @@ int	main(void)
     }
     std::cout << std::endl;
     {
+        srand(time(NULL));
         std::cout << "Testing copy constructor and assignment operators - Deep copy" << std::endl;
         Array<int>	numbers(20);
         // Creating int array by normal way
@@ -102,10 +104,4 @@ int	main(void)
         std::cout << "Size of array =   " << numbers.size() << std::endl;
         std::cout << "Array created:    " << numbers << std::endl;
     }
-
-
-
-
-
-
 }
