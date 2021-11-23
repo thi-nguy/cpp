@@ -7,8 +7,8 @@
 int main(void)
 {
     {
-        std::string str1 = "hehe";
-        std::string str2 = "hihi";
+        std::string str1 = "hehe1";
+        std::string str2 = "hehe2";
         std::string str_max = max(str1, str2);
         std::string str_min = min(str1, str2);
         std::cout << "str1: " << str1 << std::endl;
