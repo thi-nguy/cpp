@@ -16,7 +16,7 @@ public:
 
 
 template <typename T>
-typename T::iterator	easyfind(T &ctn, int val) throw(ValueNotFoundException)
+typename T::iterator	easyfind(T &ctn, int val)
 {
 	typename T::iterator	it = std::find(ctn.begin(), ctn.end(), val);
 	if (it == ctn.end())
