@@ -5,7 +5,7 @@ Span::Span(void)
 {}
 
 Span::Span(unsigned int N)
-: _size(N), _intList(N)
+: _size(N)
 {}
 
 Span::~Span(void) {}
@@ -32,15 +32,7 @@ void    Span::addNumber(int numb)
     _intList.push_back(numb);
 }
 
-template <typename T>
-void    Span::addNumber(T begin, T end)
-{
-    if (std::distance(begin, end) + _intList.size() > _size)
-        throw(RangeExceededException());
-    _intList.insert(_intList.end(), begin, end);
-}
-
-int     Span::shortestSpan(void) const
+int     Span::shortestSpan(void)
 {
     if (_size < 2 || _intList.size() < 2)
         throw(NoSpanToFind());

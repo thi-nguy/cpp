@@ -5,60 +5,69 @@
 #include "Span.hpp"
 
 #define RED		"\033[91m"
+#define GREEN   "\033[92m"
 #define NOCOLOR	"\033[0m"
 
-#define SPAN_SIZE	15000
+#define LARG_SIZE	11000
 
 int	main(void)
 {
 
-	std::cout << "\n===== SMALL SPAN =====\n";
+	std::cout << "\n-------------- SMALL VECTOR --------------\n";
 	{
-		Span	sp0(0);
-		Span	sp1(1);
+		std::cout	<< "Add a number to the zero-capacity vector\n";
+		Span	sp(0);
 		try
 		{
-			// Comment lines while testing
-			std::cout	<< "Trying to add a number to the zero-capacity span\n";
-			sp0.addNumber(0);
-
-			sp1.addNumber(1);
-			std::cout	<< "Added a number to the one-capacity span\n"
-						<< "Trying to find longest and shortest spans\n";
-			sp1.longestSpan();
-			sp1.shortestSpan();
+			sp.addNumber(0);
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << RED << e.what() << '\n' << NOCOLOR;
 		}
 	}
-
-	std::cout << "\n===== MEDIUM SPAN =====\n";
 	{
-		Span	*sp = new Span(5);
-
-		sp->addNumber(5);
-		sp->addNumber(3);
-		sp->addNumber(17);
-		sp->addNumber(9);
-		sp->addNumber(11);
-		std::cout	<< "New span created from: [5, 3, 17, 9, 11]\n";
-
-		std::cout	<< "Shortest span is: " << sp->shortestSpan()			// should be 2 (3 and 5)
-					<< "\nLongest span is: " << sp->longestSpan() << '\n';	// should be 14 (3 and 17)
-		delete sp;
+		std::cout	<< "\nOne-capacity vector:\n";
+		Span	sp1(1);
+		try
+		{
+			std::cout << "Add number\n";
+			sp1.addNumber(42);
+			std::cout << GREEN << "Add number succuessfuly" << NOCOLOR << std::endl; 
+			std::cout << "Find longest and shortest spans\n";
+			std::cout << GREEN << "Longest span found = " << sp1.longestSpan() << NOCOLOR << std::endl;
+			std::cout << GREEN << "Shortes span found = " << sp1.shortestSpan() << NOCOLOR << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << RED << e.what() << NOCOLOR << std::endl;
+		}
 	}
 
-	std::cout << "\n===== VERRRYYYY LARGE SPAN =====\n";
+	std::cout << "\n-------------- MEDIUM VECTOR --------------\n";
+	{
+		Span sp(5);
+
+		sp.addNumber(8);
+		sp.addNumber(3);
+		sp.addNumber(34);
+		sp.addNumber(7);
+		sp.addNumber(2);
+		std::cout	<< "My vector: [8, 3, 34, 7, 2]\n";
+
+		std::cout	<< "Shortest span found 	= " << sp.shortestSpan()
+					<< "\nLongest span found 	= " << sp.longestSpan() << '\n';
+	}
+
+	std::cout << "\n-------------- VERY LARGE VECTOR --------------\n";
 	{
 		srand(time(NULL));
 		
-		std::cout	<< "Creating a large collection of " << SPAN_SIZE << " random numbers\n";
-		int	minNum = 1, maxNum = 10000;
+		std::cout	<< "Creating a vector of " << LARG_SIZE << " random numbers\n";
+		int	minNum = RAND_MAX, maxNum = 1;
 		int	num;
-		std::vector<int>	vec(SPAN_SIZE);
-		for (int i = 0; i < SPAN_SIZE; i++)
+		std::vector<int>	vec(LARG_SIZE);
+		for (int i = 0; i < LARG_SIZE; i++)
 		{
 			num = rand();
 			if (num < minNum)
@@ -67,12 +76,11 @@ int	main(void)
 				maxNum = num;
 			vec[i] = num;
 		}
-
-		std::cout	<< "Longest span should be " << maxNum - minNum << '\n';
+		std::cout	<< "Longest span is:	" << maxNum - minNum << '\n';
 		std::sort(vec.begin(), vec.end());
-		long	minDiff = 10000;
+		long	minDiff = RAND_MAX;
 		long	diff;
-		for (int i = 1; i < SPAN_SIZE; i++)
+		for (int i = 1; i < LARG_SIZE; i++)
 		{
 			diff = std::abs(vec[i] - vec[i - 1]);
 			if (diff < minDiff)
@@ -80,12 +88,11 @@ int	main(void)
 			if (diff == 0)
 				break ;
 		}
-		std::cout	<< "Shortest span should be " << minDiff << '\n';
-		std::cout	<< "\nNow working with our Span class\n\n";
+		std::cout	<< "Shortest span is:	" << minDiff << '\n';
 	
-		Span	sp(SPAN_SIZE);
-		sp.addNumber(vec.begin(), vec.end());	// addNumber using range of iterators
-		std::cout	<< "Longest span is " << sp.longestSpan() << '\n';
-		std::cout	<< "Shortest span is " << sp.shortestSpan() << '\n';
+		Span	sp(LARG_SIZE);
+		sp.addNumber(vec.begin(), vec.end());
+		std::cout	<< "Longest span found	= " << sp.longestSpan() << '\n';
+		std::cout	<< "Shortest span found	= " << sp.shortestSpan() << '\n';
 	}
 }

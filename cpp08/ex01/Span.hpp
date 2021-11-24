@@ -51,9 +51,14 @@ class Span
         void    addNumber(int numb); // ! Add single number
         
         template <typename T>
-        void    addNumber(T begin, T end); // ! Add a range of number
+        void    addNumber(T begin, T end) // ! Add a range of number by iteration
+        {
+            if (std::distance(begin, end) + _intList.size() > _size)
+                throw(RangeExceededException());
+            _intList.insert(_intList.end(), begin, end);
+        }
 
-        int     shortestSpan(void) const;
+        int     shortestSpan(void);
         int     longestSpan(void) const;
 };
 
