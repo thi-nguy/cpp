@@ -1,6 +1,6 @@
 NAME	:= ex01
-CXX		:= c++ # change to clang++
-CXXFLAGS:= -g -Wall -Wextra -Werror -std=c++98 -fsanitize=address #delete -g -fsanitize=address
+CXX		:= clang++
+CXXFLAGS:= -Wall -Wextra -Werror -std=c++98
 
 SRCS	:= main.cpp
 						

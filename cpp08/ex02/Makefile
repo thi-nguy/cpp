@@ -1,8 +1,9 @@
-NAME	:= ex02
-CXX		:= clang++
-CXXFLAGS:= -Wall -Wextra -Werror -std=c++98
+NAME	:= mutant_stack
+CXX		:= c++ # change to clang++
+CXXFLAGS:= -g -Wall -Wextra -Werror -std=c++98 -fsanitize=address #delete -g -fsanitize=address
 
-SRCS	:= main.cpp
+SRCS	:= main.cpp \
+			MutantStack.cpp
 						
 OBJS	:= $(SRCS:.cpp=.o)
 
