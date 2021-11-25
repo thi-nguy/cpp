@@ -23,7 +23,6 @@ class MutantStack: public std::stack<T>
 
         iterator    begin(void) { return this->c.begin();};
         iterator    end(void) { return this->c.end();};
-
 };
 
 #endif

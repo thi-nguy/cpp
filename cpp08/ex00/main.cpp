@@ -7,7 +7,6 @@
 #include "easyfind.hpp"
 
 #define FOUND		"\033[92mFOUND\033[0m"
-#define NOT_FOUND	"\033[91mNOT FOUND\033[0m"
 
 template <typename T>
 static void	testContainer(T &ctn)
@@ -16,12 +15,13 @@ static void	testContainer(T &ctn)
 	std::cout << "Looking for " << val << ": ";
 	try
 	{
-		easyfind(ctn, val);
-		std::cout << FOUND << '\n';
+		std::cout << *easyfind(ctn, val);
+		// easyfind(ctn, val);
+		std::cout << " " << FOUND << '\n';
 	}
-	catch(ValueNotFoundException &e)
+	catch(const std::exception& e)
 	{
-		std::cout << NOT_FOUND << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 }
 int main(void)
